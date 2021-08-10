@@ -5,7 +5,7 @@ QubeFace
 ---------
 ---------
 
-### PROPERTIES ###
+### QUBEFACE PROPERTIES ###
 
 | Property                | Type           | Description                                                                                       |
 | ----------------------- | -------------- | ------------------------------------------------------------------------------------------------- |
@@ -46,7 +46,7 @@ QubeFace
 | `bottomBgColor` | `string` | The initial cube face color as CSS background-color of the bottom face. |
 
 
-### FUNCTIONS ###
+### QUBEFACE FUNCTIONS ###
 
 | Function                | Type of parameter(s)    | Description                                                                                       |
 | ----------------------- | ----------------------- | ------------------------------------------------------------------------------------------------- |
@@ -88,7 +88,7 @@ QubeControl
 -----------
 -----------
 
-### PROPERTIES ###
+### QUBECONTROL PROPERTIES ###
 
 | Property                | Type         | Description                                                                                       |
 | ----------------------- | ------------ | ------------------------------------------------------------------------------------------------- |
@@ -116,7 +116,7 @@ QubeControl
 | `leftValues` | `array` | Result array that contains the values of the swipe or spin decisions of the 'left' direction. The content can be the `value` if the `QubeItem` object or the value of the QubeControl `items` array itself. |
 
 
-### FUNCTIONS ###
+### QUBECONTROL FUNCTIONS ###
 
 
 | Function                | Type of parameter(s)    | Description                                                                                       |
@@ -154,101 +154,32 @@ QubeItem
 ---------
 ---------
 
-itemId
---------- string/number
-ID for item identification.
-
-content
---------- string/HTML-String
-Text or HTML content of the displayed cube face.
-
-value
---------- string/number/bool/object/array
-Value of the item. 
-
-lockUp
------- bool
-Prevent up spin and prevent direction value selection. Is 'false' on default.
-
-lockLeft
--------- bool
-Prevent left spin and prevent direction value selection. Is 'false' on default.
-
-lockRight
--------- bool
-Prevent right spin and prevent direction value selection. Is 'false' on default.
-
-lockDown
--------- bool
-Prevent down spin and prevent direction value selection. Is 'false' on default.
-
-ifUpThenItemId
---------------- string/number
-Jump to `itemId` of the items array when the 'up' direction was selected.
-
-ifLeftThenItemId
---------------- string/number
-Jump to `itemId` of the items array when the 'left' direction was selected.
-
-ifRightThenItemId
---------------- string/number
-Jump to `itemId` of the items array when the 'right' direction was selected.
-
-ifDownThenItemId
---------------- string/number
-Jump to `itemId` of the items array when the 'down' direction was selected.
-
-ifUpThenIndex
---------------- number
-Jump to the index of the items array when the 'up' direction was selected.
-
-ifLeftThenIndex
---------------- number
-Jump to the index of the items array when the 'left' direction was selected.
-
-ifRightThenIndex
---------------- number
-Jump to the index of the items array when the 'right' direction was selected.
-
-ifDownThenIndex
---------------- number
-Jump to the index of the items array when the 'down' direction was selected.
-
-up
----- string/HTML-String
-The QubeStar 'up' arrow content as text or HTML. If it's 'null', then the interpreter takes the content from before.
-	
-left
----- string/HTML-String
-The QubeStar 'left' arrow content as text or HTML. If it's 'null', then the interpreter takes the content from before.
-
-right
------ string/HTML-String
-The QubeStar 'right' arrow content as text or HTML. If it's 'null', then the interpreter takes the content from before.
-
-down
----- string/HTML-String
-The QubeStar 'down' arrow content as text or HTML. If it's 'null', then the interpreter takes the content from before.
-
-holdDirectionContent
---------------------- bool
-This QubeStar flag can holds all four direction contents by setting current item contents (which aren't 'null') as QubeStar direction content if it's 'true'. The default value is 'false'.
-
-onUp
------- function
-Define an action as function which was triggered as an event, when the 'up' direction was selected. This contains an empty function as default.
-
-onLeft
------- function
-Define an action as function which was triggered as an event, when the 'left' direction was selected. This contains an empty function as default.
-
-onRight
------- function
-Define an action as function which was triggered as an event, when the 'right' direction was selected. This contains an empty function as default.
-
-onDown
------- function
-Define an action as function which was triggered as an event, when the 'down' direction was selected. This contains an empty function as default.
+| Property                | Type         | Description                                                                                       |
+| ----------------------- | ------------ | ------------------------------------------------------------------------------------------------- |
+| `itemId` | `string/number` | ID for item identification. |
+| `content` | `string/HTML-String` | Text or HTML content of the displayed cube face. |
+| `value` | `string/number/boolean/object/array` | Value of the item.  |
+| `lockUp` | `boolean` | Prevent up spin and prevent direction value selection. Is 'false' on default. |
+| `lockLeft` | `boolean` | Prevent left spin and prevent direction value selection. Is 'false' on default. |
+| `lockRight` | `boolean` | Prevent right spin and prevent direction value selection. Is 'false' on default. |
+| `lockDown` | `boolean` | Prevent down spin and prevent direction value selection. Is 'false' on default. |
+| `ifUpThenItemId` | `string/number` | Jump to `itemId` of the items array when the 'up' direction was selected. |
+| `ifLeftThenItemId` | `string/number` | Jump to `itemId` of the items array when the 'left' direction was selected. |
+| `ifRightThenItemId` | `string/number` | Jump to `itemId` of the items array when the 'right' direction was selected. |
+| `ifDownThenItemId` | `string/number` | Jump to `itemId` of the items array when the 'down' direction was selected. |
+| `ifUpThenIndex` | `number` | Jump to the index of the items array when the 'up' direction was selected. |
+| `ifLeftThenIndex` | `number` | Jump to the index of the items array when the 'left' direction was selected. |
+| `ifRightThenIndex` | `number` | Jump to the index of the items array when the 'right' direction was selected. |
+| `ifDownThenIndex` | `number` | Jump to the index of the items array when the 'down' direction was selected. |
+| `up` | `string/HTML-String` | The QubeStar 'up' arrow content as text or HTML. If it's 'null', then the interpreter takes the content from before. |
+| `left` | `string/HTML-String` | The QubeStar 'left' arrow content as text or HTML. If it's 'null', then the interpreter takes the content from before. |
+| `right` | `string/HTML-String` | The QubeStar 'right' arrow content as text or HTML. If it's 'null', then the interpreter takes the content from before. |
+| `down` | `string/HTML-String` | The QubeStar 'down' arrow content as text or HTML. If it's 'null', then the interpreter takes the content from before. |
+| `holdDirectionContent` | `boolean` | This QubeStar flag can holds all four direction contents by setting current item contents (which aren't 'null') as QubeStar direction content if it's 'true'. The default value is 'false'. |
+| `onUp` | `function` | Define an action as function which was triggered as an event, when the 'up' direction was selected. This contains an empty function as default. |
+| `onLeft` | `function` | Define an action as function which was triggered as an event, when the 'left' direction was selected. This contains an empty function as default. |
+| `onRight` | `function` | Define an action as function which was triggered as an event, when the 'right' direction was selected. This contains an empty function as default. |
+| `onDown` | `function` | Define an action as function which was triggered as an event, when the 'down' direction was selected. This contains an empty function as default. |
 
 
 
@@ -256,112 +187,37 @@ QubeStar
 ---------
 ---------
 
-### PROPERTIES ###
+### QUBESTAR PROPERTIES ###
 
-qubeControl
------------ object/QubeControl
-Define the QubeControl object for the QubeStar. This object is mendatory.
-
-id
----- string
-The ID of the QubeStar.
-
-arrowColor
------------ string
-The color of the arrows as CSS color. Default value is `rgba(144, 238, 144, 0.5)`.
-
-arrowFocusColor
----------------- string
-The color of the arrow focus effect as CSS color. Default value is `#B0E0E6`.
-
-upLabel
--------- string/HTML-String
-The 'up' arrow label content as text or HTML.
-
-downLabel
--------- string/HTML-String
-The 'down' arrow label content as text or HTML.
-
-rightLabel
----------- string/HTML-String
-The 'right' arrow label content as text or HTML.
-
-leftLabel
----------- string/HTML-String
-The 'left' arrow label content as text or HTML.
-
-isUpLabelCentric
------------------ bool
-Enable centered label for the arrow 'up' part. Default value is 'false'.
-
-isDownLabelCentric
------------------ bool
-Enable centered label for the arrow 'down' part. Default value is 'false'.
-
-isRightLabelCentric
------------------ bool
-Enable centered label for the arrow 'right' part. Default value is 'false'.
-
-isLeftLabelCentric
------------------ bool
-Enable centered label for the arrow 'left' part. Default value is 'false'.
-
-boardSizePx
------------- number 
-Star board size in pixels. It's 'null' on default. If it's 'null', then we use the QubeControl property `sizePx` multiplied by three.
-
-arrowWidthPercent
------------------- number
-Direction arrows width in percent with a value from 0 till 10. It's 'null' on default. If it's 'null', then we use the default value '100'.
-
-arrowHeightPercent
------------------- number
-Direction arrows height in percent with a value from 0 till 10. It's 'null' on default. If it's 'null', then we use the default value '100'.
-
-arrowTranslate
--------------- number
-Translate direction arrows up or down with a value from -50 till 90. It's 'null' on default. If it's 'null', then we use the default value '0'.
-
-hasClickableArrows
------------------- bool
-Enable clickable arrows as default (by special overlay), otherwise just the arrow text is clickable. It's 'true' on default.
-
-isPagingMode
-------------- bool
-This flag determines the direction button effect of the cube spinning as paging mode or categorize mode. If it's 'true', then the arrow action has the spin effect like a paging, otherwise the arrow action spins to the direction of the used arrow. It's 'false' on default.
+| Property                | Type         | Description                                                                                       |
+| ----------------------- | ------------ | ------------------------------------------------------------------------------------------------- |
+| `qubeControl` | `object/QubeControl` | Define the QubeControl object for the QubeStar. This object is mendatory. |
+| `id` | `string` | The ID of the QubeStar. |
+| `arrowColor` | `string` | The color of the arrows as CSS color. Default value is `rgba(144, 238, 144, 0.5)`. |
+| `arrowFocusColor` | `string` | The color of the arrow focus effect as CSS color. Default value is `#B0E0E6`. |
+| `upLabel` | `string/HTML-String` | The 'up' arrow label content as text or HTML. |
+| `downLabel` | `string/HTML-String` | The 'down' arrow label content as text or HTML. |
+| `rightLabel` | `string/HTML-String` | The 'right' arrow label content as text or HTML. |
+| `leftLabel` | `string/HTML-String` | The 'left' arrow label content as text or HTML. |
+| `isUpLabelCentric` | `boolean` | Enable centered label for the arrow 'up' part. Default value is 'false'. |
+| `isDownLabelCentric` | `boolean` | Enable centered label for the arrow 'down' part. Default value is 'false'. |
+| `isRightLabelCentric` | `boolean` | Enable centered label for the arrow 'right' part. Default value is 'false'. |
+| `isLeftLabelCentric` | `boolean` | Enable centered label for the arrow 'left' part. Default value is 'false'. |
+| `boardSizePx` | `number` | Star board size in pixels. It's 'null' on default. If it's 'null', then we use the QubeControl property `sizePx` multiplied by three. |
+| `arrowWidthPercent` | `number` | Direction arrows width in percent with a value from 0 till 10. It's 'null' on default. If it's 'null', then we use the default value '100'. |
+| `arrowHeightPercent` | `number` | Direction arrows height in percent with a value from 0 till 10. It's 'null' on default. If it's 'null', then we use the default value '100'. |
+| `arrowTranslate` | `number` | Translate direction arrows up or down with a value from -50 till 90. It's 'null' on default. If it's 'null', then we use the default value '0'. |
+| `hasClickableArrows` | `boolean` | Enable clickable arrows as default (by special overlay), otherwise just the arrow text is clickable. It's 'true' on default. |
+| `isPagingMode` | `boolean` | This flag determines the direction button effect of the cube spinning as paging mode or categorize mode. If it's 'true', then the arrow action has the spin effect like a paging, otherwise the arrow action spins to the direction of the used arrow. It's 'false' on default. |
 
 
+### QUBESTAR FUNCTIONS ###
 
-### FUNCTIONS ###
-
-
-onSwipe(actionContent, swipeDirection)
------------------------- JS-string/function, string
-This method sets a swipe action. for a swipe direction like up/down/left/right/vertical/horizontal/general.
-The parameter `actionContent` sets the action content as string with JavaScript content or as function type.
-The parameter `swipeDirection` makes a specific swipe action definition depending on swipe direction(s). This swipe direction options are: up/down/left/right/vertical/horizontal/general. The default value is 'general'.
-
-afterSwipe(actionContent, swipeDirection)
------------------------------- JS-string/function, string
-This method sets a swipe action after the swipe animation finished. It is for swipe directions like up/down/left/right/vertical/horizontal/general.
-The parameter `actionContent` sets the action content as string with JavaScript content or as function type.
-The parameter `swipeDirection` makes a specific swipe action definition depending on swipe direction(s). This swipe direction options are: up/down/left/right/vertical/horizontal/general. The default value is 'general'.
-
-skipToNext(spinDirection)
-------------------------------------- string
-This skips to next item by ignoring the item value adding to the direction values (`upValues`, `downValues`, `rightValues`, `leftValues`) arrays.
-The parameter `spinDirection` defines the spin direction (down/up/left/right). Default value of the parameter is 'left'.
-
-spinToNext(spinDirection, isSkipping)
-------------------------------------- string, bool
-This spins to next item and adds the item value to the direction values (`upValues`, `downValues`, `rightValues`, `leftValues`) arrays, dependent on the given `spinDirection` parameter.
-The parameter `spinDirection` defines the spin direction (down/up/left/right). Default value of the parameter is 'left'.
-The parameter `isSkipping` can prevent the adding to the direction values, if it's set to 'true'. Default value of the parameter is 'false'.
-
-resize(newBoardSizePx, isScalingCubeBySameRelation)
---------------------------------------------------- number, bool
-Resize method to resize the star board which also resizes the inner cube.
-The parameter `newBoardSizePx` defines the new star board size in pixels dependent on the CSS perspective. This also resets the `sizePx` QubeControl/QubeFace property with the parameter value. This parameter is mendatory.
-The parameter `isScalingCubeBySameRelation` defines with 'true' that we also scale the cube with the same size relation from before. Default value of the parameter is 'true'.
-
+| Function                | Type of parameter(s)    | Description                                                                                       |
+| ----------------------- | ----------------------- | ------------------------------------------------------------------------------------------------- |
+| `onSwipe(actionContent, swipeDirection)` | `JS-string/function, string` | This method sets a swipe action. for a swipe direction like up/down/left/right/vertical/horizontal/general. The parameter `actionContent` sets the action content as string with JavaScript content or as function type. The parameter `swipeDirection` makes a specific swipe action definition depending on swipe direction(s). This swipe direction options are: up/down/left/right/vertical/horizontal/general. The default value is 'general'. |
+| `afterSwipe(actionContent, swipeDirection)` | `JS-string/function, string` | This method sets a swipe action after the swipe animation finished. It is for swipe directions like up/down/left/right/vertical/horizontal/general. The parameter `actionContent` sets the action content as string with JavaScript content or as function type. The parameter `swipeDirection` makes a specific swipe action definition depending on swipe direction(s). This swipe direction options are: up/down/left/right/vertical/horizontal/general. The default value is 'general'. |
+| `skipToNext(spinDirection)` | `string` | This skips to next item by ignoring the item value adding to the direction values (`upValues`, `downValues`, `rightValues`, `leftValues`) arrays. The parameter `spinDirection` defines the spin direction (down/up/left/right). Default value of the parameter is 'left'. |
+| `spinToNext(spinDirection, isSkipping)` | `string, boolean` | This spins to next item and adds the item value to the direction values (`upValues`, `downValues`, `rightValues`, `leftValues`) arrays, dependent on the given `spinDirection` parameter. The parameter `spinDirection` defines the spin direction (down/up/left/right). Default value of the parameter is 'left'. The parameter `isSkipping` can prevent the adding to the direction values, if it's set to 'true'. Default value of the parameter is 'false'. |
+| `resize(newBoardSizePx, isScalingCubeBySameRelation)` | `number, boolean` | Resize method to resize the star board which also resizes the inner cube. The parameter `newBoardSizePx` defines the new star board size in pixels dependent on the CSS perspective. This also resets the `sizePx` QubeControl/QubeFace property with the parameter value. This parameter is mendatory. The parameter `isScalingCubeBySameRelation` defines with 'true' that we also scale the cube with the same size relation from before. Default value of the parameter is 'true'. |
 
