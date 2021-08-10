@@ -13,18 +13,18 @@ QubeFace
 | `effect` | `string` | Defines the kind of the transition effect. The possible values if this property corresponds to the values of the CSS property `transition-timing-function`. Default value is `ease-in-out`. |
 | `backgroundColor` | `string` | The color of the cube as CSS background-color of the cube faces. Default value is `rgba(255,255,255,.85)`. |
 | `spinDurationSeconds` | `number` | The spin animation duration in seconds. Default value is 0.7 seconds. |
-| `actLock` | `bool` | The action lock flag. Set the value 'true' to prevent the animation transformation. The flag is also "true" if the cube animation is running. Default value is `false`. |
+| `actLock` | `boolean` | The action lock flag. Set the value 'true' to prevent the animation transformation. The flag is also "true" if the cube animation is running. Default value is `false`. |
 | `sizePx` | `number` | The size of the cube in pixels. Default value is 400. |
 | `startFace` | `string` | Defines the start face of the cube faces. The values are "front", "back", "left", "right", "top" and "bottom". Default value is "front". |
-| `enableEventsWhileSpinning` | `bool` | Enable events while spinning with this boolean flag. Default value is disabled, to prevent unwanted clicks or touch events. |
-| `disableUnpresentFaces` | `bool` | Set this flag to 'true' to disable all the form elements of the unfocused cube faces whenever the cube spins. This disabling can also handle already disabled form elements (like input or textarea). Default value is 'false'. |
-| `stopSwipe` | `bool` | Stops or reactivates swipe. This flag works only if swipe was enabled before. Default value is 'false'. |
-| `stopSwipeX` | `bool` | Stops or reactivates vertical swipe. This flag works only if swipe was enabled before. Default value is 'false'. |
-| `stopSwipeY` | `bool` | Stops or reactivates horizontal swipe. This flag works only if swipe was enabled before. Default value is 'false'. |
-| `stopSwipeRight` | `bool` | Stops or reactivates swipe right. This flag works only if swipe was enabled before. Default value is 'false'. |
-| `stopSwipeLeft` | `bool` | Stops or reactivates swipe left. This flag works only if swipe was enabled before. Default value is 'false'. |
-| `stopSwipeUp` | `bool` | Stops or reactivates swipe up. This flag works only if swipe was enabled before. Default value is 'false'. |
-| `stopSwipeDown` | `bool` | Stops or reactivates swipe down. This flag works only if swipe was enabled before. Default value is 'false'. |
+| `enableEventsWhileSpinning` | `boolean` | Enable events while spinning with this boolean flag. Default value is disabled, to prevent unwanted clicks or touch events. |
+| `disableUnpresentFaces` | `boolean` | Set this flag to 'true' to disable all the form elements of the unfocused cube faces whenever the cube spins. This disabling can also handle already disabled form elements (like input or textarea). Default value is 'false'. |
+| `stopSwipe` | `boolean` | Stops or reactivates swipe. This flag works only if swipe was enabled before. Default value is 'false'. |
+| `stopSwipeX` | `boolean` | Stops or reactivates vertical swipe. This flag works only if swipe was enabled before. Default value is 'false'. |
+| `stopSwipeY` | `boolean` | Stops or reactivates horizontal swipe. This flag works only if swipe was enabled before. Default value is 'false'. |
+| `stopSwipeRight` | `boolean` | Stops or reactivates swipe right. This flag works only if swipe was enabled before. Default value is 'false'. |
+| `stopSwipeLeft` | `boolean` | Stops or reactivates swipe left. This flag works only if swipe was enabled before. Default value is 'false'. |
+| `stopSwipeUp` | `boolean` | Stops or reactivates swipe up. This flag works only if swipe was enabled before. Default value is 'false'. |
+| `stopSwipeDown` | `boolean` | Stops or reactivates swipe down. This flag works only if swipe was enabled before. Default value is 'false'. |
 | `borderWidth` | `number` | Cube border width in pixels as numeric value. When using a border, the cube size is retained (because the border is an inset). Default value is 0 (zero for no border). |
 | `borderColor` | `string` | Cube border color as CSS border-color. Default color is white. |
 | `borderStyle` | `string` | Cube border style as CSS border-style. Default value is `solid`. |
@@ -90,218 +90,63 @@ QubeControl
 
 ### PROPERTIES ###
 
-id
---- string
-The unique QubeControl ID. This ID must be the same as the `id` of the HTML div container. This property is mendatory.
-
-effect
------- string
-Defines the kind of the transition effect. The possible values if this property corresponds to the values of the CSS property `transition-timing-function`. Default value is `ease-in-out`.
-
-backgroundColor
---------------- string
-The color of the cube as CSS background-color of the cube. Default value is `rgba(255,255,255,.85)`.
-
-spinDurationSeconds
-------------------- number
-The spin animation duration in seconds. Default value is 0.4 seconds.
-
-sizePx
-------- number
-The size of the cube in pixels. Default value is 400.
-
-enableEventsWhileSpinning
-------------------------- boolean
-This flag enables events while spinning. It's disabled at default, to prevent unwanted click/touch events.
-
-disableUnpresentFaces
---------------------- boolean
-Set this flag to 'true' to disable all the form elements of the unfocused cube faces whenever the cube spins. This disabling can also handle already disabled form elements (like input or textarea). Default value is 'false'.
-
-borderWidth
------------- number
-Cube border width in pixels as numeric value. When using a border, the cube size is retained (because the border is an inset). Default value is 0 (zero for no border).
-
-borderColor
------------- string
-Cube border color as CSS border-color. Default color is white.
-
-borderStyle
------------- string
-Cube border style as CSS border-style. Default value is `solid`.
-
-boxShadow
---------- string
-The CSS box-shadow effect of the cube faces. Default value is `inset 0 0 20px rgba(0,0,0,.2)`. Set this value to null to define a cube without box-shadow effect.
-
-textAlign
----------- string
-The CSS text-align to handle the text positions of all cube faces. Default value is 'center'.
-
-perspectivePx
-------------- number
-The perspective depth in pixels of the cube. Default value is 800.
-
-perspectiveOrigin
------------------- string
-The CSS perspective-origin of the cube. To change this property edit the horizontal perspective with a percentage value and the vertical perspective with a pixel value as '50% 100px'. The default value depends on the QubeControl/QubeFace `sizePx` property and was determined by the cube initialization.
-
-items
------- array
-Define one or more items content to page this contents. The content can be simple values as numbers or string texts, or it can be a HTML string or it can be an instance or JSON which corresponds to `QubeItem` object structure. For more information look to the QubeItem's definition. This propery must have a minimum of one element as string or as `QubeItem` object.
-
-stepIndex
---------- number
-This property defines the index of the steps as item index, starts on position zero for the first element at default. The index must be a positive integer number. This defines the index of the current item of the QubeControl `items` array. Default value is 0.
-
-endElementContent
------------------- string
-This defines the content which can be seen at the end of all items, after the last element was reached and all pages are done. This can be content with text or HTML as string. Default value is an empty string. examples: "End", "✓" or some HTML in a string.
-
-isEndingWithExplosion
---------------------- boolean
-Defines if the cube ends with an explosion animation and with a removing. This is enabled as default.
-
-upValues
------------ array
-Result array that contains the values of the swipe or spin decisions of the 'up' direction. The content can be the `value` if the `QubeItem` object or the value of the QubeControl `items` array itself.
-
-downValues
------------ array
-Result array that contains the values of the swipe or spin decisions of the 'down' direction. The content can be the `value` if the `QubeItem` object or the value of the QubeControl `items` array itself.
-
-rightValues
------------ array
-Result array that contains the values of the swipe or spin decisions of the 'right' direction. The content can be the `value` if the `QubeItem` object or the value of the QubeControl `items` array itself.
-
-leftValues
------------ array
-Result array that contains the values of the swipe or spin decisions of the 'left' direction. The content can be the `value` if the `QubeItem` object or the value of the QubeControl `items` array itself.
+| Property                | Type         | Description                                                                                       |
+| ----------------------- | ------------ | ------------------------------------------------------------------------------------------------- |
+| `id` | `string` | The unique QubeControl ID. This ID must be the same as the `id` of the HTML div container. This property is mendatory. |
+| `effect` | `string` | Defines the kind of the transition effect. The possible values if this property corresponds to the values of the CSS property `transition-timing-function`. Default value is `ease-in-out`. |
+| `backgroundColor` | `string` | The color of the cube as CSS background-color of the cube. Default value is `rgba(255,255,255,.85)`. |
+| `spinDurationSeconds` | `number` | The spin animation duration in seconds. Default value is 0.4 seconds. |
+| `sizePx` | `number` | The size of the cube in pixels. Default value is 400. |
+| `enableEventsWhileSpinning` | `boolean` | This flag enables events while spinning. It's disabled at default, to prevent unwanted click/touch events. |
+| `disableUnpresentFaces` | `boolean` | Set this flag to 'true' to disable all the form elements of the unfocused cube faces whenever the cube spins. This disabling can also handle already disabled form elements (like input or textarea). Default value is 'false'. |
+| `borderWidth` | `number` | Cube border width in pixels as numeric value. When using a border, the cube size is retained (because the border is an inset). Default value is 0 (zero for no border). |
+| `borderColor` | `string` | Cube border color as CSS border-color. Default color is white. |
+| `borderStyle` | `string` | Cube border style as CSS border-style. Default value is `solid`. |
+| `boxShadow` | `string` | The CSS box-shadow effect of the cube faces. Default value is `inset 0 0 20px rgba(0,0,0,.2)`. Set this value to null to define a cube without box-shadow effect. |
+| `textAlign` | `string` | The CSS text-align to handle the text positions of all cube faces. Default value is 'center'. |
+| `perspectivePx` | `number` | The perspective depth in pixels of the cube. Default value is 800. |
+| `perspectiveOrigin` | `string` | The CSS perspective-origin of the cube. To change this property edit the horizontal perspective with a percentage value and the vertical perspective with a pixel value as '50% 100px'. The default value depends on the QubeControl/QubeFace `sizePx` property and was determined by the cube initialization. |
+| `items` | `array` | Define one or more items content to page this contents. The content can be simple values as numbers or string texts, or it can be a HTML string or it can be an instance or JSON which corresponds to `QubeItem` object structure. For more information look to the QubeItem's definition. This propery must have a minimum of one element as string or as `QubeItem` object. |
+| `stepIndex` | `number` | This property defines the index of the steps as item index, starts on position zero for the first element at default. The index must be a positive integer number. This defines the index of the current item of the QubeControl `items` array. Default value is 0. |
+| `endElementContent` | `string` | This defines the content which can be seen at the end of all items, after the last element was reached and all pages are done. This can be content with text or HTML as string. Default value is an empty string. examples: "End", "✓" or some HTML in a string. |
+| `isEndingWithExplosion` | `boolean` | Defines if the cube ends with an explosion animation and with a removing. This is enabled as default. |
+| `upValues` | `array` | Result array that contains the values of the swipe or spin decisions of the 'up' direction. The content can be the `value` if the `QubeItem` object or the value of the QubeControl `items` array itself. |
+| `downValues` | `array` | Result array that contains the values of the swipe or spin decisions of the 'down' direction. The content can be the `value` if the `QubeItem` object or the value of the QubeControl `items` array itself. |
+| `rightValues` | `array` | Result array that contains the values of the swipe or spin decisions of the 'right' direction. The content can be the `value` if the `QubeItem` object or the value of the QubeControl `items` array itself. |
+| `leftValues` | `array` | Result array that contains the values of the swipe or spin decisions of the 'left' direction. The content can be the `value` if the `QubeItem` object or the value of the QubeControl `items` array itself. |
 
 
 ### FUNCTIONS ###
 
 
-onSwipe(actionContent, swipeDirection)
------------------------- JS-string/function, string
-This method sets a swipe action. for a swipe direction like up/down/left/right/vertical/horizontal/general.
-The parameter `actionContent` sets the action content as string with JavaScript content or as function type.
-The parameter `swipeDirection` makes a specific swipe action definition depending on swipe direction(s). This swipe direction options are: up/down/left/right/vertical/horizontal/general. The default value is 'general'.
-
-afterSwipe(actionContent, swipeDirection)
------------------------------- JS-string/function, string
-This method sets a swipe action after the swipe animation finished. It is for swipe directions like up/down/left/right/vertical/horizontal/general.
-The parameter `actionContent` sets the action content as string with JavaScript content or as function type.
-The parameter `swipeDirection` makes a specific swipe action definition depending on swipe direction(s). This swipe direction options are: up/down/left/right/vertical/horizontal/general. The default value is 'general'.
-
-onEnd(actionContent)
------------ JS-string/function
-This adds custom actions at the end of the steps.
-The parameter `actionContent` sets the action content as string with JavaScript content or as function type.
-
-setFront(value)
---------------- string/HTML
-Set the front cube face dynamically with text or HTML.
-
-remove()
------------
-Remove the cube. This removes all HTML containers of this QubeControl/QubeFace (like cube and his wrapper) and the DOM content. So all cube faces are also removed.
-
-clearItems()
-------------
-Clear all current defined `items` of the cube.
-
-resetIndex()
--------------
-Resets the `stepIndex` to the value 0.
-
-restart()
----------
-Resets the `stepIndex` and direction values (`upValues`, `downValues`, `rightValues`, `leftValues`) and restarts with first item of the `items` array.
-
-fadeOut()
----------
-Start fade-out effect.
-
-fadeIn()
----------
-Start fade-in effect.
-
-explode(animTimeMsec, animEffect, particleDistancePx, isWithFadeOut)
-------------------- number, string, number, boolean
-Starts an explosion effect and remove the cube. This destructs all six cube faces. 
-The parameter `animTimeMsec` defines the animation time in milliseconds. Default value is 500 milliseconds. 
-The parameter `animEffect` must corresponds to the values of the CSS property `animation-timing-function`. Default value is `ease-out`.
-The parameter `particleDistancePx` defines how far the six particles fly. Default value is `ease-out`. Default value depends on the cube size `sizePx`.
-The parameter `isWithFadeOut` defines if the animation should also use a fade-out effect. This option is enabled on default.
-
-getId()
-------
-Returns the `id` of the QubeControl.
-
-getQubeFace()
--------------
-Returns the QubeFace object. Use this to define QubeFace properties.
-
-concatItems(arr)
----------------- Array(String/Object/QubeItem)
-This concats new `items` as array.
-The parameter `arr` defines an array with strings or objects with the object structure of QubeItem.
-
-stopSwipe(isStopping)
---------- bool
-Stops or reactivates swipe. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'.
-
-stopSwipeX(isStopping)
------------ bool
-Stops or reactivates vertical swipe. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'.
-
-stopSwipeY(isStopping)
------------ bool
-Stops or reactivates horizontal swipe. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'.
-
-stopSwipeRight(isStopping)
--------------- bool
-Stops or reactivates swipe right. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'.
-
-stopSwipeLeft(isStopping)
--------------- bool
-Stops or reactivates swipe left. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'.
-
-stopSwipeUp(isStopping)
--------------- bool
-Stops or reactivates swipe up. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'.
-
-stopSwipeDown(isStopping)
--------------- bool
-Stops or reactivates swipe down. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'.
-
-skipToNext(spinDirection)
-------------------------------------- string
-This skips to next item by ignoring the item value adding to the direction values (`upValues`, `downValues`, `rightValues`, `leftValues`) arrays.
-The parameter `spinDirection` defines the spin direction (down/up/left/right). Default value of the parameter is 'left'.
-
-spinToNext(spinDirection, isSkipping)
-------------------------------------- string, bool
-This spins to next item and adds the item value to the direction values (`upValues`, `downValues`, `rightValues`, `leftValues`) arrays, dependent on the given `spinDirection` parameter.
-The parameter `spinDirection` defines the spin direction (down/up/left/right). Default value of the parameter is 'left'.
-The parameter `isSkipping` can prevent the adding to the direction values, if it's set to 'true'. Default value of the parameter is 'false'.
-
-getItemIndex(itemId) 
--------------------- string
-Returns the item index of the `items` array by the `id` of the item (QubeItem).
-
-resize(newSizePx)
------------------ number
-Resize the cube.
-The parameter `newSizePx` defines the new cube size in pixels. This also resets the `sizePx` QubeFace property with the parameter value. This parameter is mendatory.
-
-pushDirectionValue(directionName, isSkipping)
----------------------------------------------  string, bool
-Push an item value to one of 4 possible selected direction categories (`upValues`, `downValues`, `rightValues`, `leftValues`) by parameter `directionName`. This function contains also the item interpreter to handle the item index.
-The parameter `directionName` defines the target direction (of the array properties: `upValues`, `downValues`, `rightValues`, `leftValues`) of the item value. The parameter must be a direction value of 'up', 'down', 'right' or 'down'. This parameter is mendatory. 
-The parameter `isSkipping` prevents with the value 'true', that we push a value, so we just handle the item interpreter and the item index. Default value of the parameter is 'false'.
- 
+| Function                | Type of parameter(s)    | Description                                                                                       |
+| ----------------------- | ----------------------- | ------------------------------------------------------------------------------------------------- |
+| `onSwipe(actionContent, swipeDirection)` | `JS-string/function, string` | This method sets a swipe action. for a swipe direction like up/down/left/right/vertical/horizontal/general. The parameter `actionContent` sets the action content as string with JavaScript content or as function type. The parameter `swipeDirection` makes a specific swipe action definition depending on swipe direction(s). This swipe direction options are: up/down/left/right/vertical/horizontal/general. The default value is 'general'. |
+| `afterSwipe(actionContent, swipeDirection)` | `JS-string/function, string` | This method sets a swipe action after the swipe animation finished. It is for swipe directions like up/down/left/right/vertical/horizontal/general. The parameter `actionContent` sets the action content as string with JavaScript content or as function type. The parameter `swipeDirection` makes a specific swipe action definition depending on swipe direction(s). This swipe direction options are: up/down/left/right/vertical/horizontal/general. The default value is 'general'. |
+| `onEnd(actionContent)` | `JS-string/function` | This adds custom actions at the end of the steps. The parameter `actionContent` sets the action content as string with JavaScript content or as function type. |
+| `setFront(value)` | `string/HTML` | Set the front cube face dynamically with text or HTML. |
+| `remove()` |   | Remove the cube. This removes all HTML containers of this QubeControl/QubeFace (like cube and his wrapper) and the DOM content. So all cube faces are also removed. |
+| `clearItems()` |   | Clear all current defined `items` of the cube. |
+| `resetIndex()` |   | Resets the `stepIndex` to the value 0. |
+| `restart()` |   | Resets the `stepIndex` and direction values (`upValues`, `downValues`, `rightValues`, `leftValues`) and restarts with first item of the `items` array. |
+| `fadeOut()` |   | Start fade-out effect. |
+| `fadeIn()` |   | Start fade-in effect. |
+| `explode(animTimeMsec, animEffect, particleDistancePx, isWithFadeOut)` | `number, string, number, boolean` | Starts an explosion effect and remove the cube. This destructs all six cube faces. The parameter `animTimeMsec` defines the animation time in milliseconds. Default value is 500 milliseconds. The parameter `animEffect` must corresponds to the values of the CSS property `animation-timing-function`. Default value is `ease-out`. The parameter `particleDistancePx` defines how far the six particles fly. Default value is `ease-out`. Default value depends on the cube size `sizePx`. The parameter `isWithFadeOut` defines if the animation should also use a fade-out effect. This option is enabled on default. |
+| `getId()` |   | Returns the `id` of the QubeControl. |
+| `getQubeFace()` |   | Returns the QubeFace object. Use this to define QubeFace properties. |
+| `concatItems(arr)` | `array as string/object/QubeItem)` | This concats new `items` as array. The parameter `arr` defines an array with strings or objects with the object structure of QubeItem. |
+| `stopSwipe(isStopping)` | `boolean` | Stops or reactivates swipe. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'. |
+| `stopSwipeX(isStopping)` | `boolean` | Stops or reactivates vertical swipe. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'. |
+| `stopSwipeY(isStopping)` | `boolean` | Stops or reactivates horizontal swipe. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'. |
+| `stopSwipeRight(isStopping)` | `boolean` | Stops or reactivates swipe right. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'. |
+| `stopSwipeLeft(isStopping)` | `boolean` | Stops or reactivates swipe left. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'. |
+| `stopSwipeUp(isStopping)` | `boolean` | Stops or reactivates swipe up. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'. |
+| `stopSwipeDown(isStopping)` | `boolean` | Stops or reactivates swipe down. The parameter `isStopping` stops the swipe effect. Default value of the parameter is 'true'. |
+| `skipToNext(spinDirection)` | `string` | This skips to next item by ignoring the item value adding to the direction values (`upValues`, `downValues`, `rightValues`, `leftValues`) arrays. The parameter `spinDirection` defines the spin direction (down/up/left/right). Default value of the parameter is 'left'. |
+| `spinToNext(spinDirection, isSkipping)` | `string, boolean` | This spins to next item and adds the item value to the direction values (`upValues`, `downValues`, `rightValues`, `leftValues`) arrays, dependent on the given `spinDirection` parameter. The parameter `spinDirection` defines the spin direction (down/up/left/right). Default value of the parameter is 'left'. The parameter `isSkipping` can prevent the adding to the direction values, if it's set to 'true'. Default value of the parameter is 'false'. |
+| `getItemIndex(itemId)` | `string` | Returns the item index of the `items` array by the `id` of the item (QubeItem). |
+| `resize(newSizePx)` | `number` | Resize the cube. The parameter `newSizePx` defines the new cube size in pixels. This also resets the `sizePx` QubeFace property with the parameter value. This parameter is mendatory. |
+| `pushDirectionValue(directionName, isSkipping)` | `string, boolean` | Push an item value to one of 4 possible selected direction categories (`upValues`, `downValues`, `rightValues`, `leftValues`) by parameter `directionName`. This function contains also the item interpreter to handle the item index. The parameter `directionName` defines the target direction (of the array properties: `upValues`, `downValues`, `rightValues`, `leftValues`) of the item value. The parameter must be a direction value of 'up', 'down', 'right' or 'down'. This parameter is mendatory. The parameter `isSkipping` prevents with the value 'true', that we push a value, so we just handle the item interpreter and the item index. Default value of the parameter is 'false'. |
  
  
 
